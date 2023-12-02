@@ -30,4 +30,11 @@ describe('Sign up tests', () => {
         SignUpPage.clickSignUpButton()
         BasePage.windowAlertShouldContain(alerts.alertForBlankSignUp)
     })
+
+    it('Verify that user cannot sign up without username', () => {
+        NavigationPage.clickSignUpLink()
+        SignUpPage.fillInPasswordInputField(credentials.randomPassword)
+        SignUpPage.clickSignUpButton()
+        BasePage.windowAlertShouldContain(alerts.alertForBlankSignUp)
+    })
 })

@@ -2,15 +2,20 @@ class SignUpPage {
 
     elements = {
         signUpButton: () => cy.get('[onclick="register()"]'),
-        usernameInputField: () => cy.get('#sign-username')
+        usernameInputField: () => cy.get('#sign-username'),
+        passwordInputField: () => cy.get('#sign-password')
     }
 
     clickSignUpButton() {
         this.elements.signUpButton().click()
     }
 
-    fillInUsernameInputField(text) {
-        this.elements.usernameInputField().type(text)
+    fillInUsernameInputField(username) {
+        this.elements.usernameInputField().type(username)
+    }
+
+    fillInPasswordInputField(password) {
+        this.elements.passwordInputField().type(password)
     }
 }
 
