@@ -37,4 +37,12 @@ describe('Sign up tests', () => {
         SignUpPage.clickSignUpButton()
         BasePage.windowAlertShouldContain(alerts.alertForBlankSignUp)
     })
+
+    it('Verify alert message for already existing user', () => {
+        NavigationPage.clickSignUpLink()
+        SignUpPage.fillInUsernameInputField(credentials.randomUser)
+        SignUpPage.fillInPasswordInputField(credentials.randomPassword)
+        SignUpPage.clickSignUpButton()
+        BasePage.windowAlertShouldContain(alerts.alertForExistingUser)
+    })
 })

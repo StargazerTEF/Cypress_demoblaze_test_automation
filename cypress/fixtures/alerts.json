@@ -1,3 +1,4 @@
 {
-  "alertForBlankSignUp": "Please fill out Username and Password."
+  "alertForBlankSignUp": "Please fill out Username and Password.",
+  "alertForExistingUser": "This user already exist."
 }
