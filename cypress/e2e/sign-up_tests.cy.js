@@ -45,4 +45,12 @@ describe('Sign up tests', () => {
         SignUpPage.clickSignUpButton()
         BasePage.windowAlertShouldContain(alerts.alertForExistingUser)
     })
+
+    it('Verify message for successful sign up', () => {
+        NavigationPage.clickSignUpLink()
+        SignUpPage.fillInUsernameInputField(credentials.newUser)
+        SignUpPage.fillInPasswordInputField(credentials.validPassword)
+        SignUpPage.clickSignUpButton()
+        BasePage.windowAlertShouldContain(alerts.alertForSuccessfulSignUp)
+    })
 })
