@@ -3,10 +3,14 @@ const SignUpPage = require("../support/page-object/SignUpPage");
 const BasePage = require("../support/page-object/BasePage");
 describe('Sign up tests', () => {
     let alerts
+    let credentials
 
     before('Load alerts', () => {
         cy.fixture('alerts.json').then(data => {
             alerts = data
+        })
+        cy.fixture('credentials.json').then(data => {
+            credentials = data
         })
     })
 
@@ -18,6 +22,12 @@ describe('Sign up tests', () => {
         NavigationPage.clickSignUpLink()
         SignUpPage.clickSignUpButton()
         BasePage.windowAlertShouldContain(alerts.alertForBlankSignUp)
+    })
 
+    it('Verify that user cannot sign up without password', () => {
+        NavigationPage.clickSignUpLink()
+        SignUpPage.fillInUsernameInputField(credentials.randomUser)
+        SignUpPage.clickSignUpButton()
+        BasePage.windowAlertShouldContain(alerts.alertForBlankSignUp)
     })
 })
