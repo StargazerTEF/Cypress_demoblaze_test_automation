@@ -1,8 +1,10 @@
 const NavigationPage = require("../support/page-object/NavigationPage");
 const LoginPage = require("../support/page-object/LoginPage");
+const BasePage = require("../support/page-object/BasePage");
 describe('Sign up tests', () => {
         let titles
         let labels
+        let alerts
 
         before('Load alerts', () => {
             cy.fixture('titles.json').then(data => {
@@ -10,6 +12,9 @@ describe('Sign up tests', () => {
             })
             cy.fixture('labels.json').then(data => {
                 labels = data
+            })
+            cy.fixture('alerts.json').then(data => {
+                alerts = data
             })
         })
 
@@ -55,5 +60,11 @@ describe('Sign up tests', () => {
     it('Verify that Login button is enabled', () => {
         NavigationPage.clickLoginLink()
         LoginPage.verifyThatLoginButtonIsEnabled()
+    })
+
+    it('Verify that user cannot login without credentials', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.clickLoginButton()
+        BasePage.windowAlertShouldContain(alerts.alertForBlankLogin)
     })
 })

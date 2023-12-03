@@ -41,6 +41,10 @@ class LoginPage {
     verifyThatLoginButtonIsEnabled() {
         this.elements.loginButton().should('be.enabled')
     }
+
+    clickLoginButton() {
+        this.elements.loginButton().click()
+    }
 }
 
 module.exports = new LoginPage()
