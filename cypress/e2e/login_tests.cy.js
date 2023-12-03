@@ -101,4 +101,12 @@ describe('Login tests', () => {
         LoginPage.clickLoginButton()
         NavigationPage.verifyTheWelcomeMessageForLoggedInUser(credentials.newUser)
     })
+
+    it('Verify that Logout link is visible when user is logged in', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.fillInUsernameInputField(credentials.newUser)
+        LoginPage.fillInPasswordInputField(credentials.validPassword)
+        LoginPage.clickLoginButton()
+        LoginPage.verifyThatLogOutLinkIsVisible()
+    })
 })

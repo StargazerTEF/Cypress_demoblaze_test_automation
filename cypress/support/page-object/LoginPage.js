@@ -7,7 +7,9 @@ class LoginPage {
         usernameInputField: () => cy.get('#loginusername'),
         passwordLabel: () => cy.get('label[for="log-pass"]'),
         passwordInputField: () => cy.get('#loginpassword'),
-        loginButton: () => cy.get('button[onclick="logIn()"]')
+        loginButton: () => cy.get('button[onclick="logIn()"]'),
+        logoutLink: () => cy.get('[onclick="logOut()"]'),
+
     }
 
     verifyThatLoginFormIsVisible() {
@@ -52,6 +54,10 @@ class LoginPage {
 
     fillInPasswordInputField(password) {
         this.elements.passwordInputField().type(password)
+    }
+
+    verifyThatLogOutLinkIsVisible() {
+        this.elements.logoutLink().should('be.visible')
     }
 }
 
