@@ -35,4 +35,9 @@ describe('Footer tests', () => {
         HomePage.verifyThatFooterIsVisible()
         FooterPage.verifyFooterParagraphs(footer.paragraphs)
     })
+
+    it('Verify that copyright message is visible', () => {
+        NavigationPage.clickHomeLink()
+        FooterPage.verifyThatCopyrightMessageIsVisible()
+    })
 })
