@@ -5,7 +5,7 @@ describe('Sign up tests', () => {
     let alerts
     let credentials
 
-    before('Load alerts', () => {
+    before('Load alerts and credentials', () => {
         cy.fixture('alerts.json').then(data => {
             alerts = data
         })
