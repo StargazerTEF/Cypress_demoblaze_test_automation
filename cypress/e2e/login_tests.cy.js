@@ -5,6 +5,7 @@ describe('Sign up tests', () => {
         let titles
         let labels
         let alerts
+        let credentials
 
         before('Load alerts', () => {
             cy.fixture('titles.json').then(data => {
@@ -15,6 +16,9 @@ describe('Sign up tests', () => {
             })
             cy.fixture('alerts.json').then(data => {
                 alerts = data
+            })
+            cy.fixture('credentials.json').then(data => {
+                credentials = data
             })
         })
 
@@ -64,6 +68,13 @@ describe('Sign up tests', () => {
 
     it('Verify that user cannot login without credentials', () => {
         NavigationPage.clickLoginLink()
+        LoginPage.clickLoginButton()
+        BasePage.windowAlertShouldContain(alerts.alertForBlankLogin)
+    })
+
+    it('Verify that user cannot login without password', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.fillInUsernameInputField(credentials.newUser)
         LoginPage.clickLoginButton()
         BasePage.windowAlertShouldContain(alerts.alertForBlankLogin)
     })
