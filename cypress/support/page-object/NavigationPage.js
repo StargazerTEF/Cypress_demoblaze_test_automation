@@ -3,7 +3,8 @@ class NavigationPage {
     elements = {
         signUpLink: () => cy.get('[data-target="#signInModal"]'),
         loginLink: () => cy.get('[data-target="#logInModal"]'),
-        nameOfUserLink: () => cy.get('#nameofuser')
+        nameOfUserLink: () => cy.get('#nameofuser'),
+        homeLink: () => cy.get('a.nav-link[href="index.html"]')
     }
 
     clickSignUpLink() {
@@ -20,6 +21,10 @@ class NavigationPage {
 
     verifyThatLoginLinkIsVisible() {
         this.elements.loginLink().should('be.visible')
+    }
+
+    clickHomeLink() {
+        this.elements.homeLink().click()
     }
 }
 
