@@ -3,10 +3,14 @@ const HomePage = require("../support/page-object/HomePage");
 const FooterPage = require("../support/page-object/FooterPage");
 describe('Footer tests', () => {
     let titles
+    let footer
 
     before('Load titles', () => {
         cy.fixture('titles.json').then(data => {
             titles = data
+        })
+        cy.fixture('footer.json').then(data => {
+            footer = data
         })
     })
 
@@ -24,5 +28,11 @@ describe('Footer tests', () => {
         NavigationPage.clickHomeLink()
         HomePage.verifyThatFooterIsVisible()
         FooterPage.verifyFooterTitles(titles.footerTitles)
+    })
+
+    it('Verify the text in footer paragraphs', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.verifyThatFooterIsVisible()
+        FooterPage.verifyFooterParagraphs(footer.paragraphs)
     })
 })
