@@ -1,13 +1,13 @@
 const NavigationPage = require("../support/page-object/NavigationPage");
 const LoginPage = require("../support/page-object/LoginPage");
 const BasePage = require("../support/page-object/BasePage");
-describe('Sign up tests', () => {
+describe('Login tests', () => {
         let titles
         let labels
         let alerts
         let credentials
 
-        before('Load alerts', () => {
+        before('Load titles, labels, alerts and credentials', () => {
             cy.fixture('titles.json').then(data => {
                 titles = data
             })
