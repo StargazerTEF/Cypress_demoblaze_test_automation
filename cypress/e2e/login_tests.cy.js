@@ -51,4 +51,9 @@ describe('Sign up tests', () => {
         NavigationPage.clickLoginLink()
         LoginPage.verifyThatLoginButtonIsVisible()
     })
+
+    it('Verify that Login button is enabled', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.verifyThatLoginButtonIsEnabled()
+    })
 })
