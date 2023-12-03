@@ -3,7 +3,8 @@ class LoginPage {
     elements = {
         loginForm: () => cy.get('div#logInModal .modal-content'),
         loginFormTitle: () => cy.get('#logInModalLabel'),
-        usernameLabel: () => cy.get('label[for="log-name"]')
+        usernameLabel: () => cy.get('label[for="log-name"]'),
+        usernameInputField: () => cy.get('#loginusername')
     }
 
     verifyThatLoginFormIsVisible() {
@@ -16,6 +17,10 @@ class LoginPage {
 
     verifyUsernameLabel(label) {
         this.elements.usernameLabel().should('have.text', label)
+    }
+
+    verifyThatUsernameInputFieldIsVisible() {
+        this.elements.usernameInputField().should('be.visible')
     }
 }
 

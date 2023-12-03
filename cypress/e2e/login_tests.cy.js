@@ -31,4 +31,9 @@ describe('Sign up tests', () => {
         NavigationPage.clickLoginLink()
         LoginPage.verifyUsernameLabel(labels.usernameLabel)
     })
+
+    it('Verify that username input field is visible', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.verifyThatUsernameInputFieldIsVisible()
+    })
 })
