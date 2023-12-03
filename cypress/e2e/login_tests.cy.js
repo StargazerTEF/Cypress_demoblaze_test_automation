@@ -93,4 +93,12 @@ describe('Sign up tests', () => {
         LoginPage.clickLoginButton()
         BasePage.windowAlertShouldContain(alerts.alertForUnregisteredUser)
     })
+
+    it('Verify that user can login with valid credentials', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.fillInUsernameInputField(credentials.newUser)
+        LoginPage.fillInPasswordInputField(credentials.validPassword)
+        LoginPage.clickLoginButton()
+        NavigationPage.verifyTheWelcomeMessageForLoggedInUser(credentials.newUser)
+    })
 })
