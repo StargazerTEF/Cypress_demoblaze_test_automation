@@ -2,5 +2,6 @@
   "alertForBlankSignUp": "Please fill out Username and Password.",
   "alertForExistingUser": "This user already exist.",
   "alertForSuccessfulSignUp": "Sign up successful.",
-  "alertForBlankLogin": "Please fill out Username and Password."
+  "alertForBlankLogin": "Please fill out Username and Password.",
+  "alertForUnregisteredUser": "User does not exist."
 }

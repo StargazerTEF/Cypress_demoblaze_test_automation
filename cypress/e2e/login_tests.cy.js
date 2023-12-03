@@ -85,4 +85,12 @@ describe('Sign up tests', () => {
         LoginPage.clickLoginButton()
         BasePage.windowAlertShouldContain(alerts.alertForBlankLogin)
     })
+
+    it('Verify that user cannot login with invalid credentials', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.fillInUsernameInputField(credentials.invalidUsername)
+        LoginPage.fillInPasswordInputField(credentials.invalidPassword)
+        LoginPage.clickLoginButton()
+        BasePage.windowAlertShouldContain(alerts.alertForUnregisteredUser)
+    })
 })
