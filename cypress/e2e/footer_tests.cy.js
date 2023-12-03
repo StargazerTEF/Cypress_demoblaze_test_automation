@@ -40,4 +40,9 @@ describe('Footer tests', () => {
         NavigationPage.clickHomeLink()
         FooterPage.verifyThatCopyrightMessageIsVisible()
     })
+
+    it('Verify the copyright message text', () => {
+        NavigationPage.clickHomeLink()
+        FooterPage.verifyTheCopyrightMessageText(footer.copyrightMessage)
+    })
 })

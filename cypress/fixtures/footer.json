@@ -1,6 +1,7 @@
 {
   "paragraphs": ["We believe performance needs to be validated at every stage of the software development cycle",
-                       "Address: 2390 El Camino Real",
-                       "Phone: +440 123456",
-                       "Email: demo@blazemeter.com"]
+                 "Address: 2390 El Camino Real",
+                 "Phone: +440 123456",
+                 "Email: demo@blazemeter.com"],
+  "copyrightMessage": "Copyright © Product Store 2017"
 }

@@ -21,6 +21,10 @@ class FooterPage {
     verifyThatCopyrightMessageIsVisible() {
         this.elements.copyrightMessage().should('be.visible')
     }
+
+    verifyTheCopyrightMessageText(copyrightMessage) {
+        this.elements.copyrightMessage().should('have.text', copyrightMessage)
+    }
 }
 
 module.exports = new FooterPage()
