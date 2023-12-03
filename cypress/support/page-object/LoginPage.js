@@ -8,8 +8,7 @@ class LoginPage {
         passwordLabel: () => cy.get('label[for="log-pass"]'),
         passwordInputField: () => cy.get('#loginpassword'),
         loginButton: () => cy.get('button[onclick="logIn()"]'),
-        logoutLink: () => cy.get('[onclick="logOut()"]'),
-
+        logoutLink: () => cy.get('[onclick="logOut()"]')
     }
 
     verifyThatLoginFormIsVisible() {
@@ -58,6 +57,10 @@ class LoginPage {
 
     verifyThatLogOutLinkIsVisible() {
         this.elements.logoutLink().should('be.visible')
+    }
+
+    clickLogoutLink() {
+        this.elements.logoutLink().click()
     }
 }
 

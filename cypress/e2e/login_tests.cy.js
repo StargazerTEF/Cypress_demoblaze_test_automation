@@ -109,4 +109,14 @@ describe('Login tests', () => {
         LoginPage.clickLoginButton()
         LoginPage.verifyThatLogOutLinkIsVisible()
     })
+
+    it('Verify that user is logged out', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.fillInUsernameInputField(credentials.newUser)
+        LoginPage.fillInPasswordInputField(credentials.validPassword)
+        LoginPage.clickLoginButton()
+        LoginPage.verifyThatLogOutLinkIsVisible()
+        LoginPage.clickLogoutLink()
+        NavigationPage.verifyThatLoginLinkIsVisible()
+    })
 })
