@@ -1,9 +1,13 @@
 class FooterPage {
 
     elements = {
-        signUpLink: () => cy.get('[data-target="#signInModal"]'),
-        loginLink: () => cy.get('[data-target="#logInModal"]'),
-        nameOfUserLink: () => cy.get('#nameofuser')
+        footerTitles: () => cy.get('.caption > h4')
+    }
+
+    verifyFooterTitles(titles) {
+        this.elements.footerTitles().each(($el, index, $list)=>{
+            this.elements.footerTitles().eq(index).should('contain.text', titles[index])
+        })
     }
 }
 
