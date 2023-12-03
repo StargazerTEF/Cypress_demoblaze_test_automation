@@ -49,6 +49,10 @@ class LoginPage {
     fillInUsernameInputField(username) {
         this.elements.usernameInputField().type(username)
     }
+
+    fillInPasswordInputField(password) {
+        this.elements.passwordInputField().type(password)
+    }
 }
 
 module.exports = new LoginPage()
