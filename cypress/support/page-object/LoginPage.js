@@ -5,7 +5,8 @@ class LoginPage {
         loginFormTitle: () => cy.get('#logInModalLabel'),
         usernameLabel: () => cy.get('label[for="log-name"]'),
         usernameInputField: () => cy.get('#loginusername'),
-        passwordLabel: () => cy.get('label[for="log-pass"]')
+        passwordLabel: () => cy.get('label[for="log-pass"]'),
+        passwordInputField: () => cy.get('#loginpassword')
     }
 
     verifyThatLoginFormIsVisible() {
@@ -26,6 +27,10 @@ class LoginPage {
 
     verifyPasswordLabel(label) {
         this.elements.passwordLabel().eq(0).should('have.text', label)
+    }
+
+    verifyThatPasswordInputFieldIsVisible() {
+        this.elements.passwordInputField().should('be.visible')
     }
 }
 

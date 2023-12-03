@@ -41,4 +41,9 @@ describe('Sign up tests', () => {
         NavigationPage.clickLoginLink()
         LoginPage.verifyPasswordLabel(labels.passwordLabel)
     })
+
+    it('Verify that password input field is visible', () => {
+        NavigationPage.clickLoginLink()
+        LoginPage.verifyThatPasswordInputFieldIsVisible()
+    })
 })
