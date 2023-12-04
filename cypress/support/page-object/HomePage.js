@@ -6,7 +6,8 @@ class HomePage {
         phoneCategoryFilter: () => cy.get(`a[onclick="byCat('phone')"]`),
         productNames: () => cy.get('.card-title > a'),
         productPrices: () => cy.get('.card-block > h5'),
-        laptopCategoryFilter: () => cy.get(`a[onclick="byCat('notebook')"]`)
+        laptopCategoryFilter: () => cy.get(`a[onclick="byCat('notebook')"]`),
+        monitorCategoryFilter: () => cy.get(`a[onclick="byCat('monitor')"]`)
     }
 
     verifyThatFooterIsVisible() {
@@ -48,6 +49,16 @@ class HomePage {
     verifyThePricesOfLaptops(laptops) {
         this.elements.productPrices().each(($el, index, $list)=>{
             this.elements.productPrices().eq(index).should('contain.text', laptops[index].price)
+        })
+    }
+
+    clickOnMonitorCategoryFilter() {
+        this.elements.monitorCategoryFilter().click()
+    }
+
+    verifyTheNamesOfMonitors(monitors) {
+        this.elements.productNames().each(($el, index, $list)=>{
+            this.elements.productNames().eq(index).should('contain.text', monitors[index].name)
         })
     }
 }

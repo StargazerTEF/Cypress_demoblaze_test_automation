@@ -46,4 +46,11 @@ describe('Products tests', () => {
         HomePage.verifyThatProductsAreVisible()
         HomePage.verifyThePricesOfLaptops(products.laptops)
     })
+
+    it('Verify the names of monitors', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnMonitorCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.verifyTheNamesOfMonitors(products.monitors)
+    })
 })
