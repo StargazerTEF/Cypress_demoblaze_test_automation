@@ -32,4 +32,11 @@ describe('Products tests', () => {
         HomePage.verifyThatProductsAreVisible()
         HomePage.verifyThePricesOfPhones(products.phones)
     })
+
+    it('Verify the names of laptops', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnLaptopCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.verifyTheNamesOfLaptops(products.laptops)
+    })
 })
