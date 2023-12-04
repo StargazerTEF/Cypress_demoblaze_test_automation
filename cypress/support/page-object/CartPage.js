@@ -2,7 +2,8 @@ class CartPage {
 
     elements = {
         addedProducts: () => cy.get('#tbodyid > .success'),
-        addedProductNames: ()=> cy.get('td:nth-child(2)')
+        addedProductNames: ()=> cy.get('td:nth-child(2)'),
+        totalPrice: ()=> cy.get('#totalp')
     }
 
     verifyThatAddedProductsAreVisible() {
@@ -17,6 +18,14 @@ class CartPage {
 
     verifyThePriceOfAddedProduct(name, price) {
         cy.get('td').contains(name).siblings('td').should('contain.text', price.substring(1))
+    }
+
+    verifyThatTheSumOfThePricesOfAddedProductsIsEqualToTheTotalPrice(addedProducts) {
+        let sum = 0
+        for (let i = 0; i < addedProducts.length; i++) {
+            sum += +addedProducts[i].substring(1)
+        }
+        this.elements.totalPrice().should("have.text", sum)
     }
 }
 
