@@ -61,6 +61,12 @@ class HomePage {
             this.elements.productNames().eq(index).should('contain.text', monitors[index].name)
         })
     }
+
+    verifyThePricesOfMonitors(monitors) {
+        this.elements.productPrices().each(($el, index, $list)=>{
+            this.elements.productPrices().eq(index).should('contain.text', monitors[index].price)
+        })
+    }
 }
 
 module.exports = new HomePage()
