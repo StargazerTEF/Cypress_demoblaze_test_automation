@@ -3,7 +3,8 @@ class ProductPage {
     elements = {
         productName: () => cy.get('h2.name'),
         productPrice: () => cy.get('h3.price-container'),
-        productDescription: () => cy.get('div#more-information')
+        productDescription: () => cy.get('div#more-information'),
+        addToCartButton: () => cy.get('.btn-success')
     }
 
     verifyProductName(productName) {
@@ -16,6 +17,10 @@ class ProductPage {
 
     verifyThatProductDescriptionIsVisible() {
         this.elements.productDescription().should('be.visible')
+    }
+
+    clickAddToCartButton() {
+        this.elements.addToCartButton().click()
     }
 }
 

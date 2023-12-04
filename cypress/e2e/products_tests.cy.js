@@ -1,12 +1,17 @@
-const NavigationPage = require("../support/page-object/NavigationPage");
-const HomePage = require("../support/page-object/HomePage");
-const ProductPage = require("../support/page-object/ProductPage");
+const NavigationPage = require("../support/page-object/NavigationPage")
+const HomePage = require("../support/page-object/HomePage")
+const ProductPage = require("../support/page-object/ProductPage")
+const BasePage = require("../support/page-object/BasePage")
 describe('Products tests', () => {
     let products
+    let alerts
 
     before('Load products', () => {
         cy.fixture('products.json').then(data => {
             products = data
+        })
+        cy.fixture('alerts.json').then(data => {
+            alerts = data
         })
     })
 
@@ -114,5 +119,14 @@ describe('Products tests', () => {
         HomePage.verifyThatProductsAreVisible()
         HomePage.clickProductNameWithIndex(2)
         ProductPage.verifyThatProductDescriptionIsVisible()
+    })
+
+    it('Verify that product is added to the cart', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(1)
+        ProductPage.verifyThatProductDescriptionIsVisible()
+        ProductPage.clickAddToCartButton()
+        BasePage.windowAlertShouldContain(alerts.alertForAddToCart)
     })
 })

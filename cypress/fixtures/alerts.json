@@ -3,5 +3,6 @@
   "alertForExistingUser": "This user already exist.",
   "alertForSuccessfulSignUp": "Sign up successful.",
   "alertForBlankLogin": "Please fill out Username and Password.",
-  "alertForUnregisteredUser": "User does not exist."
+  "alertForUnregisteredUser": "User does not exist.",
+  "alertForAddToCart": "Product added"
 }
