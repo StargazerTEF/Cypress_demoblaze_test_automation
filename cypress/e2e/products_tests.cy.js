@@ -1,6 +1,6 @@
 const NavigationPage = require("../support/page-object/NavigationPage");
 const HomePage = require("../support/page-object/HomePage");
-
+const ProductPage = require("../support/page-object/ProductPage");
 describe('Products tests', () => {
     let products
 
@@ -59,5 +59,13 @@ describe('Products tests', () => {
         HomePage.clickOnMonitorCategoryFilter()
         HomePage.verifyThatProductsAreVisible()
         HomePage.verifyThePricesOfMonitors(products.monitors)
+    })
+
+    it('Verify the name of a certain phone', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnPhoneCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(3)
+        ProductPage.verifyProductName(products.phones[3].name)
     })
 })

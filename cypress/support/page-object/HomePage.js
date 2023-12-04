@@ -67,6 +67,10 @@ class HomePage {
             this.elements.productPrices().eq(index).should('contain.text', monitors[index].price)
         })
     }
+
+    clickProductNameWithIndex(index) {
+        this.elements.productNames().eq(index).click()
+    }
 }
 
 module.exports = new HomePage()
