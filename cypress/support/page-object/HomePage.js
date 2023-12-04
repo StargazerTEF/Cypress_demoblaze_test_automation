@@ -4,7 +4,8 @@ class HomePage {
         footer: () => cy.get('div#footc'),
         products: () => cy.get('#tbodyid .card'),
         phoneCategoryFilter: () => cy.get(`a[onclick="byCat('phone')"]`),
-        productNames: () => cy.get('.card-title > a')
+        productNames: () => cy.get('.card-title > a'),
+        productPrices: () => cy.get('.card-block > h5'),
     }
 
     verifyThatFooterIsVisible() {
@@ -24,6 +25,12 @@ class HomePage {
     verifyTheNamesOfPhones(phones) {
         this.elements.productNames().each(($el, index, $list)=>{
             this.elements.productNames().eq(index).should('have.text', phones[index].name)
+        })
+    }
+
+    verifyThePricesOfPhones(phones) {
+        this.elements.productPrices().each(($el, index, $list)=>{
+            this.elements.productPrices().eq(index).should('have.text', phones[index].price)
         })
     }
 }
