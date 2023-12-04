@@ -4,7 +4,8 @@ class NavigationPage {
         signUpLink: () => cy.get('[data-target="#signInModal"]'),
         loginLink: () => cy.get('[data-target="#logInModal"]'),
         nameOfUserLink: () => cy.get('#nameofuser'),
-        homeLink: () => cy.get('a.nav-link[href="index.html"]')
+        homeLink: () => cy.get('a.nav-link[href="index.html"]'),
+        cartLink: () => cy.get('a#cartur')
     }
 
     clickSignUpLink() {
@@ -25,6 +26,10 @@ class NavigationPage {
 
     clickHomeLink() {
         this.elements.homeLink().click()
+    }
+
+    clickCartLink() {
+        this.elements.cartLink().click()
     }
 }
 
