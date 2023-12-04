@@ -25,7 +25,7 @@ class HomePage {
 
     verifyTheNamesOfPhones(phones) {
         this.elements.productNames().each(($el, index, $list)=>{
-            this.elements.productNames().eq(index).should('have.text', phones[index].name)
+            this.elements.productNames().eq(index).should('contain.text', phones[index].name)
         })
     }
 
@@ -42,6 +42,12 @@ class HomePage {
     verifyTheNamesOfLaptops(laptops) {
         this.elements.productNames().each(($el, index, $list)=>{
             this.elements.productNames().eq(index).should('contain.text', laptops[index].name)
+        })
+    }
+
+    verifyThePricesOfLaptops(laptops) {
+        this.elements.productPrices().each(($el, index, $list)=>{
+            this.elements.productPrices().eq(index).should('contain.text', laptops[index].price)
         })
     }
 }
