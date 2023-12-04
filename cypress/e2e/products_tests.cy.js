@@ -84,4 +84,12 @@ describe('Products tests', () => {
         HomePage.clickProductNameWithIndex(5)
         ProductPage.verifyProductName(products.laptops[5].name)
     })
+
+    it('Verify the price of a certain laptop', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnLaptopCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(4)
+        ProductPage.verifyProductPrice(products.laptops[4].price)
+    })
 })
