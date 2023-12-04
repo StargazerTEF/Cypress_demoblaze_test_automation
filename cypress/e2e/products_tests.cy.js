@@ -100,4 +100,12 @@ describe('Products tests', () => {
         HomePage.clickProductNameWithIndex(1)
         ProductPage.verifyProductName(products.monitors[1].name)
     })
+
+    it('Verify the price of a certain monitor', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnMonitorCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(0)
+        ProductPage.verifyProductPrice(products.monitors[0].price)
+    })
 })
