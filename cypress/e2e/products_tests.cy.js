@@ -108,4 +108,11 @@ describe('Products tests', () => {
         HomePage.clickProductNameWithIndex(0)
         ProductPage.verifyProductPrice(products.monitors[0].price)
     })
+
+    it('Verify that product description is visible', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(2)
+        ProductPage.verifyThatProductDescriptionIsVisible()
+    })
 })
