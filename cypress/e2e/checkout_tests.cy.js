@@ -11,7 +11,7 @@ describe('Checkout tests', () => {
     let alerts
     let titles
 
-    before('Load products and alerts', () => {
+    before('Load products, alerts and titles', () => {
         cy.fixture('products.json').then(data => {
             products = data
         })
