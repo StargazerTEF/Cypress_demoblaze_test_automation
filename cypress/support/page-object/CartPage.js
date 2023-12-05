@@ -17,7 +17,7 @@ class CartPage {
     }
 
     verifyThePriceOfAddedProduct(name, price) {
-        cy.get('td').contains(name).siblings('td').should('contain.text', price.substring(1))
+        cy.contains(name).next().should('contain.text', price.substring(1))
     }
 
     verifyThatTheSumOfThePricesOfAddedProductsIsEqualToTheTotalPrice(addedProductsPrices) {
@@ -29,7 +29,7 @@ class CartPage {
     }
 
     removeAddedProduct(name) {
-        cy.get('td').contains(name).siblings('td').contains('Delete').click()
+        cy.contains(name).siblings().contains('Delete').click()
     }
 
     verifyThatTheCartIsEmpty() {
