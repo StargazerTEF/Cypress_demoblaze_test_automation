@@ -3,7 +3,8 @@ class CartPage {
     elements = {
         addedProducts: () => cy.get('#tbodyid > .success'),
         addedProductNames: ()=> cy.get('td:nth-child(2)'),
-        totalPrice: ()=> cy.get('#totalp')
+        totalPrice: ()=> cy.get('#totalp'),
+        placeOrderButton: () => cy.get('button[data-target="#orderModal"]')
     }
 
     verifyThatAddedProductsAreVisible() {
@@ -34,6 +35,10 @@ class CartPage {
 
     verifyThatTheCartIsEmpty() {
         this.elements.addedProducts().should("not.exist")
+    }
+
+    clickPlaceOrderButton() {
+        this.elements.placeOrderButton().click()
     }
 }
 

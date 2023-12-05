@@ -1,4 +1,5 @@
 {
   "loginFormTitle": "Log in",
-  "footerTitles": ["About Us", "Get in Touch", "PRODUCT STORE"]
+  "footerTitles": ["About Us", "Get in Touch", "PRODUCT STORE"],
+  "checkoutFormTitle": "Place order"
 }
