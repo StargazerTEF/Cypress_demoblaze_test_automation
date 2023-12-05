@@ -27,6 +27,14 @@ class CartPage {
         }
         this.elements.totalPrice().should("have.text", sum)
     }
+
+    removeAddedProduct(name) {
+        cy.get('td').contains(name).siblings('td').contains('Delete').click()
+    }
+
+    verifyThatTheCartIsEmpty() {
+        this.elements.addedProducts().should("not.exist")
+    }
 }
 
 module.exports = new CartPage()

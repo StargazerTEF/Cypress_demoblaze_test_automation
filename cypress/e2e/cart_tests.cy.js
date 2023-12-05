@@ -3,7 +3,9 @@ const HomePage = require("../support/page-object/HomePage")
 const ProductPage = require("../support/page-object/ProductPage")
 const BasePage = require("../support/page-object/BasePage")
 const CartPage = require("../support/page-object/CartPage")
+
 describe('Cart tests', () => {
+
     let products
     let alerts
 
@@ -117,5 +119,31 @@ describe('Cart tests', () => {
         CartPage.verifyThePriceOfAddedProduct(products.phones[1].name, products.phones[1].price)
         CartPage.verifyThePriceOfAddedProduct(products.monitors[0].name, products.monitors[0].price)
         CartPage.verifyThatTheSumOfThePricesOfAddedProductsIsEqualToTheTotalPrice([products.phones[1].price, products.monitors[0].price])
+    })
+
+    it('Verify that removed products are not visible on the page', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnLaptopCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(3)
+        ProductPage.verifyProductName(products.laptops[3].name)
+        ProductPage.verifyProductPrice(products.laptops[3].price)
+        ProductPage.verifyThatProductDescriptionIsVisible()
+        ProductPage.clickAddToCartButton()
+        BasePage.windowAlertShouldContain(alerts.alertForAddToCart)
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnMonitorCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(0)
+        ProductPage.verifyProductName(products.monitors[0].name)
+        ProductPage.verifyProductPrice(products.monitors[0].price)
+        ProductPage.verifyThatProductDescriptionIsVisible()
+        ProductPage.clickAddToCartButton()
+        BasePage.windowAlertShouldContain(alerts.alertForAddToCart)
+        NavigationPage.clickCartLink()
+        CartPage.verifyThatAddedProductsAreVisible()
+        CartPage.removeAddedProduct(products.laptops[3].name)
+        CartPage.removeAddedProduct(products.monitors[0].name)
+        CartPage.verifyThatTheCartIsEmpty()
     })
 })
