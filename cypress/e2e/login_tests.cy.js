@@ -1,7 +1,9 @@
-const NavigationPage = require("../support/page-object/NavigationPage");
-const LoginPage = require("../support/page-object/LoginPage");
-const BasePage = require("../support/page-object/BasePage");
+const NavigationPage = require("../support/page-object/NavigationPage")
+const LoginPage = require("../support/page-object/LoginPage")
+const BasePage = require("../support/page-object/BasePage")
+
 describe('Login tests', () => {
+
         let titles
         let labels
         let alerts

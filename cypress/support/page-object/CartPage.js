@@ -20,10 +20,10 @@ class CartPage {
         cy.get('td').contains(name).siblings('td').should('contain.text', price.substring(1))
     }
 
-    verifyThatTheSumOfThePricesOfAddedProductsIsEqualToTheTotalPrice(addedProducts) {
+    verifyThatTheSumOfThePricesOfAddedProductsIsEqualToTheTotalPrice(addedProductsPrices) {
         let sum = 0
-        for (let i = 0; i < addedProducts.length; i++) {
-            sum += +addedProducts[i].substring(1)
+        for (let i = 0; i < addedProductsPrices.length; i++) {
+            sum += +addedProductsPrices[i].substring(1)
         }
         this.elements.totalPrice().should("have.text", sum)
     }

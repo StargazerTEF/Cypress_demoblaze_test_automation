@@ -2,7 +2,9 @@ const NavigationPage = require("../support/page-object/NavigationPage")
 const HomePage = require("../support/page-object/HomePage")
 const ProductPage = require("../support/page-object/ProductPage")
 const BasePage = require("../support/page-object/BasePage")
+
 describe('Products tests', () => {
+
     let products
     let alerts
 

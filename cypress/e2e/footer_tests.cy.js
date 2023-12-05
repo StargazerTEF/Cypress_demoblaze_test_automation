@@ -1,7 +1,9 @@
-const NavigationPage = require("../support/page-object/NavigationPage");
-const HomePage = require("../support/page-object/HomePage");
-const FooterPage = require("../support/page-object/FooterPage");
+const NavigationPage = require("../support/page-object/NavigationPage")
+const HomePage = require("../support/page-object/HomePage")
+const FooterPage = require("../support/page-object/FooterPage")
+
 describe('Footer tests', () => {
+
     let titles
     let footer
 
