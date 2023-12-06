@@ -10,6 +10,7 @@ describe('Checkout tests', () => {
     let products
     let alerts
     let titles
+    let buyerData
 
     before('Load products, alerts and titles', () => {
         cy.fixture('products.json').then(data => {
@@ -20,6 +21,9 @@ describe('Checkout tests', () => {
         })
         cy.fixture('titles.json').then(data => {
             titles = data
+        })
+        cy.fixture('buyerData.json').then(data => {
+            buyerData = data
         })
     })
 
@@ -89,5 +93,24 @@ describe('Checkout tests', () => {
         CartPage.clickPlaceOrderButton()
         CheckoutPage.clickPurchaseButton()
         BasePage.windowAlertShouldContain(alerts.alertForIncompleteCheckoutInformation)
+    })
+
+    it('Verify that user can complete a purchase with name and credit card fields being populated', () => {
+        NavigationPage.clickHomeLink()
+        HomePage.clickOnMonitorCategoryFilter()
+        HomePage.verifyThatProductsAreVisible()
+        HomePage.clickProductNameWithIndex(1)
+        ProductPage.verifyProductName(products.monitors[1].name)
+        ProductPage.verifyProductPrice(products.monitors[1].price)
+        ProductPage.verifyThatProductDescriptionIsVisible()
+        ProductPage.clickAddToCartButton()
+        BasePage.windowAlertShouldContain(alerts.alertForAddToCart)
+        NavigationPage.clickCartLink()
+        CartPage.verifyThatAddedProductsAreVisible()
+        CartPage.clickPlaceOrderButton()
+        CheckoutPage.fillInNameInputField(buyerData.name)
+        CheckoutPage.fillInCreditCardInputField(buyerData.creditCard)
+        CheckoutPage.clickPurchaseButton()
+        CheckoutPage.verifyThatConfirmationPopUpDialogIsVisible()
     })
 })
