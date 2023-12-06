@@ -4,9 +4,15 @@
   "description": "E2E cypress test automation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "cypress open",
+    "sign-up_tests": "cypress run --headed --browser chrome --spec cypress/e2e/sign-up_tests.cy.js --reporter mochawesome",
+    "login_tests": "cypress run --headed --browser chrome --spec cypress/e2e/login_tests.cy.js --reporter mochawesome",
+    "footer_tests": "cypress run --headed --browser chrome --spec cypress/e2e/footer_tests.cy.js --reporter mochawesome",
+    "products_tests": "cypress run --headed --browser chrome --spec cypress/e2e/products_tests.cy.js --reporter mochawesome",
+    "cart_tests": "cypress run --headed --browser chrome --spec cypress/e2e/cart_tests.cy.js --reporter mochawesome",
+    "checkout_tests": "cypress run --headed --browser chrome --spec cypress/e2e/checkout_tests.cy.js --reporter mochawesome"
   },
-  "author": "",
+  "author": "StargazerTEF",
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.6.0",
