@@ -11,6 +11,10 @@ module.exports = defineConfig({
     viewportHeight: 1080,
     defaultCommandTimeout: 10000,
     pageLoadTimeout:10000
+},
+    reporter: "mochawesome",
+    reporterOptions: {
+  reportFilename: "[status]_[datetime]-[name]-report"
 }
 });
 
