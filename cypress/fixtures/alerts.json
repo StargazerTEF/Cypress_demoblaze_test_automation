@@ -4,5 +4,6 @@
   "alertForSuccessfulSignUp": "Sign up successful.",
   "alertForBlankLogin": "Please fill out Username and Password.",
   "alertForUnregisteredUser": "User does not exist.",
-  "alertForAddToCart": "Product added"
+  "alertForAddToCart": "Product added",
+  "alertForIncompleteCheckoutInformation": "Please fill out Name and Creditcard."
 }

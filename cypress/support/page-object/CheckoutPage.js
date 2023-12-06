@@ -14,8 +14,12 @@ class CheckoutPage {
         this.elements.checkoutFormTitle().should('contain.text', title)
     }
 
-    verifyThatCheckoutButtonIsEnabled() {
+    verifyThatPurchaseButtonIsEnabled() {
         this.elements.purchaseButton().should('be.enabled')
+    }
+
+    clickPurchaseButton() {
+        this.elements.purchaseButton().click()
     }
 }
 
