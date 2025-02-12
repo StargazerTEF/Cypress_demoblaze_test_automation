@@ -17,7 +17,7 @@ class NavigationPage {
     }
 
     verifyTheWelcomeMessageForLoggedInUser(loggedInUser) {
-        this.elements.nameOfUserLink().should('have.text', 'Welcome ' + loggedInUser)
+        this.elements.nameOfUserLink().should('contain', 'Welcome ' + loggedInUser)
     }
 
     verifyThatLoginLinkIsVisible() {

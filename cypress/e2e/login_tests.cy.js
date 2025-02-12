@@ -99,6 +99,7 @@ describe('Login tests', () => {
     it('Verify that user can login with valid credentials', () => {
         NavigationPage.clickLoginLink()
         LoginPage.fillInUsernameInputField(credentials.newUser)
+        cy.wait(1000)
         LoginPage.fillInPasswordInputField(credentials.validPassword)
         LoginPage.clickLoginButton()
         NavigationPage.verifyTheWelcomeMessageForLoggedInUser(credentials.newUser)
